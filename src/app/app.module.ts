@@ -60,6 +60,7 @@ import { CharacterSearchComponent } from './character-search/character-search.co
     MatListModule,
     MatDividerModule,
     MatButtonModule
+    
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

@@ -1,19 +1,46 @@
 <div class="filter">
     <div class="Filter">
-        <mat-form-field class="select">
-            <mat-select [(value)]="selected">
-                <mat-option value="filter">Filter By</mat-option>
-                <mat-option value="option1">Books</mat-option>
-                <mat-option value="option2">Characters</mat-option>
-                <mat-option value="option3">Houses</mat-option>
-                <mat-option value="option4">Name</mat-option>
-            </mat-select>
-        </mat-form-field>
+
+        <div class="filt">
+            <mat-form-field class="select">
+                <mat-select [(value)]="selected">
+                    <mat-option value="filter">Filter By</mat-option>
+                    <mat-option value="option1">Books</mat-option>
+                    <mat-option value="option2">Characters</mat-option>
+                    <mat-option value="option3">Houses</mat-option>
+                    <mat-option value="option4">Name</mat-option>
+                </mat-select>
 
 
+            </mat-form-field>
 
-        <div class="wrap" *ngIf="showName(selected)">
-            <div >
+            <div *ngIf="!showBooks(selected) && !showCharacters(selected) && !showHouses(selected) && !showName(selected)">
+                <button class="button1" mat-mini-fab color="accent" mat-raised-button>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+
+            <div *ngIf="showBooks(selected)">
+                <button class="button1" mat-mini-fab [routerLink]="['/books']" mat-raised-button color="accent">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+
+            <div *ngIf="showCharacters(selected)">
+                <button class="button1" mat-mini-fab [routerLink]="['/characters']" color="accent" mat-raised-button>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+
+            <div *ngIf="showHouses(selected)">
+                <button class="button1" mat-mini-fab [routerLink]="['/houses']" color="accent" mat-raised-button>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="showName(selected)" class="wrap">
+            <div>
                 <div class="search">
                     <input [(ngModel)]="name" type="text" class="searchTerm" placeholder="Enter Character Name" required>
                     <div *ngIf="isNull(name)">
@@ -30,30 +57,6 @@
 
                 </div>
             </div>
-        </div>
-
-        <div *ngIf="!showBooks(selected) && !showCharacters(selected) && !showHouses(selected) && !showName(selected)">
-            <button mat-mini-fab color="accent" mat-raised-button>
-                <mat-icon>search</mat-icon>
-            </button>
-        </div>
-
-        <div *ngIf="showBooks(selected)">
-            <button mat-mini-fab [routerLink]="['/books']" mat-raised-button color="accent">
-                <mat-icon>search</mat-icon>
-            </button>
-        </div>
-
-        <div *ngIf="showCharacters(selected)">
-            <button mat-mini-fab [routerLink]="['/characters']" color="accent" mat-raised-button>
-                <mat-icon>search</mat-icon>
-            </button>
-        </div>
-
-        <div *ngIf="showHouses(selected)">
-            <button mat-mini-fab [routerLink]="['/houses']" color="accent" mat-raised-button>
-                <mat-icon>search</mat-icon>
-            </button>
         </div>
     </div>
 </div>

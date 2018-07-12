@@ -11,6 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CharacterSearchComponent implements OnInit {
   public character;
   public imageLink;
+  public status
 
   constructor(private _route:ActivatedRoute, private http:HttpService, private spinner:NgxSpinnerService) { }
 
@@ -29,6 +30,11 @@ export class CharacterSearchComponent implements OnInit {
         }
 
         console.log(this.imageLink)
+      },
+
+      error=>{
+        this.status = error.status
+        this.spinner.hide()
       }
     )
   }
@@ -43,6 +49,12 @@ export class CharacterSearchComponent implements OnInit {
     if(gender==false){
       return false;
     }else return true;
+  }
+
+  public isError(message){
+    if(message==404){
+      return true;
+    }else return false;
   }
  
 }

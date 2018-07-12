@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     margin: 4vmin;
-    align-items: stretch;
 }
 
 .searchTerm{
@@ -10,6 +9,12 @@
     flex-grow: 1;
     border: 3px solid rgb(0, 178, 223);
     border-radius: 5px;
+}
+
+.filt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .searchButton{
@@ -75,23 +80,20 @@ img{
     border-radius: 20px;
 }
 
+mat-select{
+    color: white;
+}
+
 .select{
     flex-grow: 1;
     margin-left: 8vmin;
-    margin-right: 8vmin;
-}
-button{
     margin-right: 8vmin;
 }
 
 .filter{
     display: flex;
     justify-content: center;
-}
-
-.wrap{
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
 }
 
 .example-card2 {
@@ -189,6 +191,10 @@ button{
     .example-card3{
         width: 30vw;
     }
+    
+    .Filter{
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width:600px){
@@ -203,9 +209,10 @@ button{
     .example-card3{
         width: 60vw;
     }
+}
 
+@media only screen and (max-width:320px){
     .Filter{
-        width:85vw;
-        flex-direction: column;
+        width: 95vw;
     }
 }

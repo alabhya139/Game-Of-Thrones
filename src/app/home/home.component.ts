@@ -41,18 +41,31 @@ export class HomeComponent implements OnInit,OnChanges {
       data=>{
         this.Books = data;
         this.combine(this.Books)
+      },
+      error=>{
+        console.log(error)
+        this.spinner.hide()
       }
+      
     );
     this.httpService.getCharacters().subscribe(
       data=>{
         this.Characters= data;
         this.combine(this.Characters)
+      },
+      error=>{
+        console.log(error)
+        this.spinner.hide()
       }
     )
     this.httpService.getHouses().subscribe(
       data=>{
         this.Houses = data;
         this.combine(this.Houses)
+      },
+      error=>{
+        console.log(error)
+        this.spinner.hide()
       }
     );
     

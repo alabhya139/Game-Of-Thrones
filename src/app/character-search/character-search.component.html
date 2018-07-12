@@ -1,6 +1,6 @@
 <h2 class="head">Character Details</h2>
 
-<div class="container">
+<div *ngIf="!isError(status)" class="container">
   <div class="cards row">
     <div class="content shadow">
       <mat-divider></mat-divider>
@@ -71,9 +71,14 @@
   </mat-card>
 </div>
 
+<div *ngIf="isError(status)" class="error">
+    <p>Character Not Found</p>
+    <img src="assets/images/404.png">
+  </div>
+
 <div class="btn">
   <button [routerLink]="['/home']" mat-mini-fab>
     <mat-icon>home</mat-icon>
   </button>
 </div>
-<ngx-spinner loadingText="Character Details Loading! Please Wait" type="line-scale"></ngx-spinner>
+<ngx-spinner loadingText="Please Wait.." type="line-scale"></ngx-spinner>
