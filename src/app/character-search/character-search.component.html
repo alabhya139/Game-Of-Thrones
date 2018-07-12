@@ -63,7 +63,8 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{character?.data?.name}}</mat-card-title>
-      <mat-card-subtitle>{{character?.data?.gender}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="isMale(character?.data?.male)">Male</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="!isMale(character?.data?.male)">Female</mat-card-subtitle>
     </mat-card-header>
     <img class="card-image" mat-card-image src={{imageLink}}>
     <p>{{character?.data?.titles[0]}}</p>
