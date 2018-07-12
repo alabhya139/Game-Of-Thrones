@@ -13,7 +13,7 @@
       <div class="list-row">
         <mat-list-item class="name">Aliases:</mat-list-item>
         <div class="val">
-          <mat-list-item *ngFor = "let alias of character?.aliases" class="value">{{alias}}</mat-list-item>
+          <mat-list-item *ngFor="let alias of character?.aliases" class="value">{{alias}}</mat-list-item>
         </div>
         <mat-list-item *ngIf="isNull(character?.aliases)">Unknown</mat-list-item>
       </div>
@@ -45,7 +45,7 @@
       <div class="list-row">
         <mat-list-item class="name">Titles:</mat-list-item>
         <div class="val">
-          <mat-list-item *ngFor = "let title of character?.titles" class="value">{{title}}</mat-list-item>
+          <mat-list-item *ngFor="let title of character?.titles" class="value">{{title}}</mat-list-item>
         </div>
         <mat-list-item *ngIf="isNull(character?.titles)">Unknown</mat-list-item>
       </div>
@@ -72,17 +72,17 @@
         <mat-divider></mat-divider>
       </div>
       <div class="list-row">
-          <mat-list-item class="name">TV Series:</mat-list-item>
-          <mat-list-item class="value">{{character?.tvSeries}}</mat-list-item>
-          <mat-list-item *ngIf="isNull(character?.tvSeries)">Unknown</mat-list-item>
-        </div>
-        <mat-divider></mat-divider>
+        <mat-list-item class="name">TV Series:</mat-list-item>
+        <mat-list-item class="value">{{character?.tvSeries}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.tvSeries)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
       <div class="list-row">
-          <mat-list-item class="name">Played By:</mat-list-item>
-          <mat-list-item class="value">{{character?.playedBy}}</mat-list-item>
-          <mat-list-item *ngIf="isNull(character?.playedBy)">Unknown</mat-list-item>
-        </div>
-        <mat-divider></mat-divider>
+        <mat-list-item class="name">Played By:</mat-list-item>
+        <mat-list-item class="value">{{character?.playedBy}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.playedBy)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
     </div>
   </div>
   <!--Card-->
@@ -98,6 +98,8 @@
 </div>
 
 <div class="btn">
-  <button [routerLink]="['/home']" mat-mini-fab><mat-icon>home</mat-icon></button>
+  <button [routerLink]="['/home']" mat-mini-fab>
+    <mat-icon>home</mat-icon>
+  </button>
 </div>
-<ngx-spinner></ngx-spinner>
+<ngx-spinner loadingText="Character Details Loading! Please Wait" type="line-scale"></ngx-spinner>

@@ -15,6 +15,7 @@ export class BookDetailsComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private httpService: HttpService, private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show()
     console.log(this._route)
 
     let id =this._route.snapshot.params.id;
@@ -23,6 +24,9 @@ export class BookDetailsComponent implements OnInit {
       data=>{
         this.Book = data;
         console.log(this.Book)
+        if(this.Book!=undefined){
+          this.spinner.hide()
+        }
       },
 
       error=>{

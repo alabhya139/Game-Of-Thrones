@@ -55,4 +55,19 @@ export class HttpService {
     let htttpResponse = this.http.get(url);
     return htttpResponse;
   }
+
+  public getCurrentLord(url){
+    let htttpResponse = this.http.get(url);
+    return htttpResponse;
+  }
+
+  public getHeir(url){
+    let htttpResponse = this.http.get(url);
+    return htttpResponse;
+  }
+
+  public getOverlord(url){
+    let htttpResponse = this.http.get(url);
+    return htttpResponse;
+  }
 }

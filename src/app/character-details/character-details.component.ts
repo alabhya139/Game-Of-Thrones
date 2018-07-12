@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../services/http.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-character-details',
@@ -14,14 +15,18 @@ export class CharacterDetailsComponent implements OnInit {
   public mother
   public spouse
 
-  constructor(private _route: ActivatedRoute, public http: HttpService) { }
+  constructor(private _route: ActivatedRoute, public http: HttpService, private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show()
     let id = this._route.snapshot.params.id;
     this.http.getSpecificCharacter(id).subscribe(
       data=>{
         this.character = data;
         console.log(data);
+        if(this.character!=undefined){
+          this.spinner.hide();
+        }
 
         this.http.getFather(this.character.father).subscribe(
           data=>{
@@ -45,7 +50,7 @@ export class CharacterDetailsComponent implements OnInit {
           }
         )
 
-        this.http.getMother(this.character.spouse).subscribe(
+        this.http.getSpouse(this.character.spouse).subscribe(
           data=>{
             this.spouse = data
             console.log(this.spouse)

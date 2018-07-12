@@ -2,27 +2,35 @@
     <div class="Filter">
         <mat-form-field class="select">
             <mat-select [(value)]="selected">
-              <mat-option value="filter">Filter By</mat-option>
-              <mat-option value="option1">Books</mat-option>
-              <mat-option value="option2">Characters</mat-option>
-              <mat-option value="option3">Houses</mat-option>
+                <mat-option value="filter">Filter By</mat-option>
+                <mat-option value="option1">Books</mat-option>
+                <mat-option value="option2">Characters</mat-option>
+                <mat-option value="option3">Houses</mat-option>
             </mat-select>
-          </mat-form-field>
-    
-          <div *ngIf="!showBooks(selected) && !showCharacters(selected) && !showHouses(selected)">
-            <button mat-mini-fab color="accent" mat-raised-button><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+
+        <div *ngIf="!showBooks(selected) && !showCharacters(selected) && !showHouses(selected)">
+            <button mat-mini-fab color="accent" mat-raised-button>
+                <mat-icon>search</mat-icon>
+            </button>
         </div>
-    
-          <div *ngIf="showBooks(selected)">
-            <button mat-mini-fab [routerLink]="['/books']" mat-raised-button color="accent"><mat-icon>search</mat-icon></button>
+
+        <div *ngIf="showBooks(selected)">
+            <button mat-mini-fab [routerLink]="['/books']" mat-raised-button color="accent">
+                <mat-icon>search</mat-icon>
+            </button>
         </div>
-        
+
         <div *ngIf="showCharacters(selected)">
-            <button mat-mini-fab [routerLink]="['/characters']" color="accent" mat-raised-button><mat-icon>search</mat-icon></button>
+            <button mat-mini-fab [routerLink]="['/characters']" color="accent" mat-raised-button>
+                <mat-icon>search</mat-icon>
+            </button>
         </div>
-        
+
         <div *ngIf="showHouses(selected)">
-            <button mat-mini-fab [routerLink]="['/houses']" color="accent" mat-raised-button><mat-icon>search</mat-icon></button>
+            <button mat-mini-fab [routerLink]="['/houses']" color="accent" mat-raised-button>
+                <mat-icon>search</mat-icon>
+            </button>
         </div>
     </div>
 </div>
@@ -32,40 +40,40 @@
         <div *ngIf="isBook(data)" class="cards row">
             <mat-card class="example-card">
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{data.name}}</mat-card-title>
-                  <mat-card-subtitle>{{data.publisher}}</mat-card-subtitle>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{data.name}}</mat-card-title>
+                    <mat-card-subtitle>{{data.publisher}}</mat-card-subtitle>
                 </mat-card-header>
                 <img class="card-image" mat-card-image src="assets/images/book.png">
                 <button [routerLink]="['/books',getBookId(data.url)]" class="button" mat-button>Know More</button>
-              </mat-card>
+            </mat-card>
         </div>
-    
+
         <div *ngIf="isCharacter(data)" class="cards row">
             <mat-card class="example-card2">
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{data.name}}</mat-card-title>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{data.name}}</mat-card-title>
                 </mat-card-header>
-                <img class="card-image" mat-card-image src="assets/images/book.png">
+                <img class="card-image" mat-card-image src="assets/images/tyrion.jpg">
                 <button [routerLink]="['/characters',getCharacterId(data.url)]" class="button" mat-button>Know More</button>
-              </mat-card>
+            </mat-card>
         </div>
-    
+
         <div *ngIf="isHouse(data)" class="cards row">
             <mat-card class="example-card3">
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{data.name}}</mat-card-title>
-                  <mat-card-subtitle>{{data.region}}</mat-card-subtitle>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{data.name}}</mat-card-title>
+                    <mat-card-subtitle>{{data.region}}</mat-card-subtitle>
                 </mat-card-header>
-                <img class="card-image" mat-card-image src="assets/images/book.png">
+                <img class="card-image" mat-card-image src="assets/images/castle.png">
                 <button [routerLink]="['/houses',getHouseId(data.url)]" class="button" mat-button>Know More</button>
-              </mat-card>
+            </mat-card>
         </div>
     </div>
 </div>
 
 <ngx-spinner type="line-scale" loadingText="Please Wait..."></ngx-spinner>
 
-<pagination-controls class="my-pagination" id = "alldata" (pageChange) = "page = $event"></pagination-controls>
+<pagination-controls class="my-pagination" id="alldata" (pageChange)="page = $event"></pagination-controls>

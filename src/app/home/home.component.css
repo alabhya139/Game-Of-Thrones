@@ -79,9 +79,11 @@ button{
 }
 
 .button{
+    display: flex;
     font-family: 'Times New Roman', Times, serif;
     color: black;
     background-color: white;
+    justify-content: center;
 }
 
 .head{

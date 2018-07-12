@@ -1,3 +1,93 @@
-<p>
-  {{house?.name}}
-</p>
+<h2 class="head">House Details</h2>
+
+<div class="container">
+  <div class="cards row">
+    <div class="content shadow">
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Name:</mat-list-item>
+        <mat-list-item class="value">{{house?.name}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(house?.name)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Region:</mat-list-item>
+        <div class="val">
+          <mat-list-item class="value">{{house?.region}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(house?.region)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Coat Of Arms:</mat-list-item>
+        <div class="val">
+          <mat-list-item class="value">{{house?.coatOfArms}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(chouse?.coatOfArms)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Words:</mat-list-item>
+        <mat-list-item class="value">{{house?.words}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(house?.words)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Titles:</mat-list-item>
+        <div class="val">
+          <mat-list-item *ngFor="let title of house?.titles" class="value">{{title}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(house?.titles)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Seats:</mat-list-item>
+        <mat-list-item *ngFor="let seat of house?.seats" class="value">{{seat}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(house?.seats)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngIf="!isNull(house?.currentLord)" class="list-row">
+        <mat-list-item class="name">Current Lord:</mat-list-item>
+        <div class="val">
+          <mat-list-item class="value">{{currentLord?.name}}</mat-list-item>
+        </div>
+      </div>
+      <div class="divider" *ngIf="!isNull(house?.currentLord)">
+        <mat-divider></mat-divider>
+      </div>
+      <div *ngIf="!isNull(house?.heir)" class="list-row">
+        <mat-list-item class="name">Heir:</mat-list-item>
+        <mat-list-item class="value">{{heir?.name}}</mat-list-item>
+      </div>
+      <div class="divider" *ngIf="!isNull(house?.heir)">
+        <mat-divider></mat-divider>
+      </div>
+      <div *ngIf="!isNull(house?.overlord)" class="list-row">
+        <mat-list-item class="name">Over Lord:</mat-list-item>
+        <mat-list-item class="value">{{overLord?.name}}</mat-list-item>
+      </div>
+      <div class="divider" *ngIf="!isNull(house?.overlord)">
+        <mat-divider></mat-divider>
+      </div>
+
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+  <!--Card-->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{house?.name}}</mat-card-title>
+      <mat-card-subtitle>{{house?.region}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="card-image" mat-card-image src="assets/images/castle.png">
+    <p>{{house?.coatOfArms}}</p>
+  </mat-card>
+</div>
+
+<div class="btn">
+  <button [routerLink]="['/home']" mat-mini-fab>
+    <mat-icon>home</mat-icon>
+  </button>
+</div>
+<ngx-spinner loadingText="House Details Loading Please Wait" type="line-scale"></ngx-spinner>
