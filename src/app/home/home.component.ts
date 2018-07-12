@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit,OnChanges {
   public isLoaded: boolean
   selected = "filter"
   public name;
+  public page;
   selectedCategory = "category"
 
   
