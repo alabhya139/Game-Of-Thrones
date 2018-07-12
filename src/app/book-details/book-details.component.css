@@ -1,0 +1,93 @@
+.example-card {
+    display: flex;
+    flex-direction: column;
+    font-family: 'GameOfThrones';
+    justify-content: space-between;
+    color: white;
+    width: 20vw;
+    background-image: linear-gradient(to top, #a70000 0%, #cf8581 100%);
+}
+
+.shadow{
+    -webkit-box-shadow: 0 4px 4px #777;
+    -moz-box-shadow: 0 4px 4px #777;
+    box-shadow: 0 4px 4px #777;
+}
+
+.cards{
+    margin:8px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 40vw;
+}
+
+.button{
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: white;
+}
+
+.head{
+    color: rgb(77, 34, 0);
+    text-align: center;
+    font-family: 'GameOfThrones';
+}
+
+.content{
+    flex-grow: 1;
+}
+
+.list-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.name{
+    flex-grow: 1;
+    margin-right: 4vmin;
+    font-weight: bolder;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    margin: 4vmin;
+    justify-content: center;
+}
+
+.value{
+    color: rgb(6, 130, 179);
+}
+
+.list-row:hover{
+    background: rgb(163, 163, 163);
+    color:white;
+}
+
+.btn{
+    text-align: right;
+    margin: 8vmin;
+    color: white;
+}
+
+@media only screen and (max-width:900px){
+    .example-card{
+        width: 40vw;
+    }
+}
+
+@media only screen and (max-width:550px){
+    .example-card{
+        width: 75vw;
+    }
+
+    .container{
+        flex-wrap: wrap-reverse;
+    }
+
+    .cards{
+        width: 80vw;
+    }
+}

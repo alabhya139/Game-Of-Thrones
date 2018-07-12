@@ -1,0 +1,103 @@
+<h2 class="head">Book Details</h2>
+
+<div class="container">
+  <div class="cards row">
+    <div class="content shadow">
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Name:</mat-list-item>
+        <mat-list-item class="value">{{character?.name}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.name)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Aliases:</mat-list-item>
+        <div class="val">
+          <mat-list-item *ngFor = "let alias of character?.aliases" class="value">{{alias}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(character?.aliases)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Gender:</mat-list-item>
+        <mat-list-item class="value">{{character?.gender}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.gender)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Culture:</mat-list-item>
+        <mat-list-item class="value">{{character?.culture}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.culture)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Born:</mat-list-item>
+        <mat-list-item class="value">{{character?.born}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.born)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Died:</mat-list-item>
+        <mat-list-item class="value">{{character?.died}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.died)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Titles:</mat-list-item>
+        <div class="val">
+          <mat-list-item *ngFor = "let title of character?.titles" class="value">{{title}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(character?.titles)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngIf="!isNull(character?.father)" class="list-row">
+        <mat-list-item class="name">Father:</mat-list-item>
+        <mat-list-item class="value">{{father?.name}}</mat-list-item>
+      </div>
+      <div class="divider" *ngIf="!isNull(character?.father)">
+        <mat-divider></mat-divider>
+      </div>
+      <div *ngIf="!isNull(character?.mother)" class="list-row">
+        <mat-list-item class="name">Mother:</mat-list-item>
+        <mat-list-item class="value">{{mother?.name}}</mat-list-item>
+      </div>
+      <div class="divider" *ngIf="!isNull(character?.mother)">
+        <mat-divider></mat-divider>
+      </div>
+      <div *ngIf="!isNull(character?.spouse)" class="list-row">
+        <mat-list-item class="name">Spouse:</mat-list-item>
+        <mat-list-item class="value">{{spouse?.name}}</mat-list-item>
+      </div>
+      <div class="divider" *ngIf="!isNull(character?.spouse)">
+        <mat-divider></mat-divider>
+      </div>
+      <div class="list-row">
+          <mat-list-item class="name">TV Series:</mat-list-item>
+          <mat-list-item class="value">{{character?.tvSeries}}</mat-list-item>
+          <mat-list-item *ngIf="isNull(character?.tvSeries)">Unknown</mat-list-item>
+        </div>
+        <mat-divider></mat-divider>
+      <div class="list-row">
+          <mat-list-item class="name">Played By:</mat-list-item>
+          <mat-list-item class="value">{{character?.playedBy}}</mat-list-item>
+          <mat-list-item *ngIf="isNull(character?.playedBy)">Unknown</mat-list-item>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+  </div>
+  <!--Card-->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{character?.name}}</mat-card-title>
+      <mat-card-subtitle>{{character?.gender}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="card-image" mat-card-image src="assets/images/tyrion.jpg">
+    <p>{{character?.aliases[0]}}</p>
+  </mat-card>
+</div>
+
+<div class="btn">
+  <button [routerLink]="['/home']" mat-mini-fab><mat-icon>home</mat-icon></button>
+</div>
+<ngx-spinner></ngx-spinner>

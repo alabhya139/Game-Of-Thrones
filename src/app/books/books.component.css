@@ -1,0 +1,102 @@
+.example-card2 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'GameOfThrones';
+    color: white;
+    width: 15vw;
+    background-image: linear-gradient(to top, #a70000 0%, #cf8581 100%);
+}
+
+.example-card2 img{
+    flex-grow: 1;
+}
+
+.container{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+    padding: 6vmin;
+    background-image: linear-gradient(240deg, #f5a597 0%, #d1eefc 100%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 32px;
+    justify-content: space-around;
+}
+
+.cards{
+    margin:8px;
+    display: flex;
+    align-items: stretch;
+}
+
+.button{
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: white;
+}
+
+.head{
+    color: rgb(77, 34, 0);
+    text-align: center;
+    font-family: 'GameOfThrones';
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: rgb(3, 0, 151);
+    box-shadow: 0 3px 3px #777;
+    padding: 8px;
+}
+
+.my-pagination /deep/ .ngx-pagination li {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 8px;
+    margin: 1vmin;
+    box-shadow: 0 3px 3px #777;
+}
+
+.my-pagination /deep/ .ngx-pagination li a:focus{
+    outline: none;
+}
+
+.my-pagination /deep/ .ngx-pagination li a:hover{
+    background:none;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous{
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: white;
+    margin: 2vmin;
+    padding: 1vmin;
+    border-radius: 20px;
+    box-shadow: 0 3px 3px #777;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-next{
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 2vmin;
+    color: white;
+    padding: 1vmin;
+    border-radius: 20px;
+    box-shadow: 0 3px 3px #777;
+}
+
+.my-pagination{
+    text-align: center;
+}
+
+@media only screen and (max-width:980px){
+    .example-card2{
+        width: 26vw;
+    }
+
+    .container{
+        align-items: stretch;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .example-card2{
+        width: 60vw;
+    }
+}

@@ -1,0 +1,166 @@
+.example-card {
+    display: flex;
+    flex-direction: column;
+    font-family: 'GameOfThrones';
+    color: white;
+    width: 15vw;
+    background-image: linear-gradient(to top, #a70000 0%, #cf8581 100%);
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 32px;
+    justify-content: space-around;
+}
+
+img{
+    flex: 1 0 auto
+}
+
+.Filter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 8vmin;
+    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+    width: 50vw;
+    border-radius: 20px;
+}
+
+.select{
+    flex-grow: 1;
+    margin-left: 8vmin;
+    margin-right: 8vmin;
+}
+button{
+    margin-right: 8vmin;
+}
+
+.filter{
+    display: flex;
+    justify-content: center;
+}
+
+.example-card2 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'GameOfThrones';
+    color: white;
+    width: 15vw;
+    background-image: linear-gradient(to top, #42147e 0%, #81cfc2 100%);
+}
+
+.example-card3 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'GameOfThrones';
+    color: white;
+    width: 15vw;
+    background-image: linear-gradient(to top, #00aa09 0%, #86dfa1 100%);
+}
+
+.cards{
+    margin:8px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-grow: 1;
+}
+
+.button{
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: white;
+}
+
+.head{
+    color: rgb(77, 34, 0);
+    text-align: center;
+    font-family: 'GameOfThrones';
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: rgb(3, 0, 151);
+    box-shadow: 0 3px 3px #777;
+    padding: 8px;
+}
+
+.my-pagination /deep/ .ngx-pagination li {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    box-shadow: 0 3px 3px #777;
+    padding: 8px;
+    margin: 1vmin;
+}
+
+.my-pagination /deep/ .ngx-pagination li a:focus{
+    outline: none;
+}
+
+.my-pagination /deep/ .ngx-pagination li a:hover{
+    background:none;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous{
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: white;
+    margin: 2vmin;
+    padding: 1vmin;
+    border-radius: 20px;
+    box-shadow: 0 3px 3px #777;
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-next{
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 2vmin;
+    color: white;
+    padding: 1vmin;
+    border-radius: 20px;
+    box-shadow: 0 3px 3px #777;
+}
+
+.my-pagination{
+    text-align: center;
+}
+
+@media only screen and (max-width:980px){
+    .example-card2{
+        width: 30vw;
+    }
+
+    .example-card{
+        width: 30vw;
+    }
+
+    .example-card3{
+        width: 30vw;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .example-card2{
+        width: 60vw;
+    }
+
+    .example-card{
+        width: 60vw;
+    }
+
+    .example-card3{
+        width: 60vw;
+    }
+
+    .Filter{
+        width:85vw;
+    }
+}

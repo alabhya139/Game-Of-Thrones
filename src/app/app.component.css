@@ -1,0 +1,32 @@
+
+
+.background{
+    height: 60vh;
+    background-image: url("../assets/images/gameofthronesbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.heading{
+    font-family: 'GameOfThrones';
+    font-size: 6vmin;
+    color: rgb(77, 34, 0);
+}
+
+.toolbar{
+    font-family: 'GameOfThrones';
+    font-size: 16px;
+    background-image: #dfe9f3;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+button{
+    text-align: center;
+    background: #6f97ec;
+    color: white;
+}
+
+
+
+
