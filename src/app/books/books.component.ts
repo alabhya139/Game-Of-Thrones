@@ -10,6 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class BooksComponent implements OnInit {
 
   public Books;
+  public page
 
   constructor(private httpService: HttpService, private spinner: NgxSpinnerService) {
     console.log(this.Books)

@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HousesComponent implements OnInit {
   public Houses
+  public p
 
   constructor(private httpService: HttpService, private spinner: NgxSpinnerService) { }
 

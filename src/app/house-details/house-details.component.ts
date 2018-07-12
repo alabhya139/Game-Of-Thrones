@@ -13,6 +13,7 @@ export class HouseDetailsComponent implements OnInit {
   public currentLord;
   public heir;
   public overLord;
+  public page;
 
   constructor(private _route: ActivatedRoute, private http:HttpService, private spinner:NgxSpinnerService) { }
 
