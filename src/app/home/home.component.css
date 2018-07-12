@@ -1,3 +1,40 @@
+.search{
+    display: flex;
+    flex-direction: row;
+    margin: 4vmin;
+    align-items: stretch;
+}
+
+.searchTerm{
+    padding: 1vmin;
+    flex-grow: 1;
+    border: 3px solid rgb(0, 178, 223);
+    border-radius: 5px;
+}
+
+.searchButton{
+    display: flex;
+    border: 1px solid #00B4CC;
+  
+  justify-content: center;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.btnn{
+    background: #00B4CC;
+    margin-left: 2vmin;
+}
+.searchTerm:focus{
+    outline: none
+}
+
+.searchButton:focus{
+    outline: none
+}
+
 .example-card {
     display: flex;
     flex-direction: column;
@@ -29,12 +66,12 @@ img{
 
 .Filter{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     margin: 8vmin;
     background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
-    width: 50vw;
+    width: 85vw;
     border-radius: 20px;
 }
 
@@ -48,6 +85,11 @@ button{
 }
 
 .filter{
+    display: flex;
+    justify-content: center;
+}
+
+.wrap{
     display: flex;
     justify-content: center;
 }
@@ -164,5 +206,6 @@ button{
 
     .Filter{
         width:85vw;
+        flex-direction: column;
     }
 }

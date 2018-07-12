@@ -1,0 +1,78 @@
+<h2 class="head">Character Details</h2>
+
+<div class="container">
+  <div class="cards row">
+    <div class="content shadow">
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Name:</mat-list-item>
+        <mat-list-item class="value">{{character?.data?.name}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.data?.name)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Gender:</mat-list-item>
+        <mat-list-item *ngIf="!isMale(character?.data?.male)">Female</mat-list-item>
+        <mat-list-item *ngIf="isMale(character?.data?.male)">Male</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.data?.name)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Date Of Birth:</mat-list-item>
+        <mat-list-item class="value">{{character?.data?.dateOfBirth}} AC</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.data?.dateOfBirth)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Culture:</mat-list-item>
+        <mat-list-item class="value">{{character?.data?.culture}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.data?.culture)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Titles:</mat-list-item>
+        <div class="val">
+          <mat-list-item *ngFor="let title of character?.data?.titles"class="value">{{title}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(character?.data?.titles)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Updated at:</mat-list-item>
+        <mat-list-item class="value">{{character?.data?.updatedAt | date}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.data?.updatedAt)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Created At:</mat-list-item>
+        <mat-list-item class="value">{{character?.data?.createdAt | date}}</mat-list-item>
+        <mat-list-item *ngIf="isNull(character?.data?.createdAt)">Unknown</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="list-row">
+        <mat-list-item class="name">Titles:</mat-list-item>
+        <div class="val">
+          <mat-list-item *ngFor="let book of character?.data?.books"class="value">{{book}}</mat-list-item>
+        </div>
+        <mat-list-item *ngIf="isNull(character?.data?.books)">Unknown</mat-list-item>
+      </div>
+    </div>
+  </div>
+  <!--Card-->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{character?.data?.name}}</mat-card-title>
+      <mat-card-subtitle>{{character?.data?.gender}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="card-image" mat-card-image src={{imageLink}}>
+    <p>{{character?.data?.titles[0]}}</p>
+  </mat-card>
+</div>
+
+<div class="btn">
+  <button [routerLink]="['/home']" mat-mini-fab>
+    <mat-icon>home</mat-icon>
+  </button>
+</div>
+<ngx-spinner loadingText="Character Details Loading! Please Wait" type="line-scale"></ngx-spinner>

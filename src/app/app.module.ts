@@ -26,6 +26,7 @@ import { BooksComponent } from './books/books.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HousesComponent } from './houses/houses.component';
 import { PagingComponent } from './paging/paging.component';
+import { CharacterSearchComponent } from './character-search/character-search.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PagingComponent } from './paging/paging.component';
     BooksComponent,
     CharactersComponent,
     HousesComponent,
-    PagingComponent
+    PagingComponent,
+    CharacterSearchComponent
   ],
   imports: [
     BrowserModule,

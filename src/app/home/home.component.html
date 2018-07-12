@@ -6,10 +6,33 @@
                 <mat-option value="option1">Books</mat-option>
                 <mat-option value="option2">Characters</mat-option>
                 <mat-option value="option3">Houses</mat-option>
+                <mat-option value="option4">Name</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <div *ngIf="!showBooks(selected) && !showCharacters(selected) && !showHouses(selected)">
+
+
+        <div class="wrap" *ngIf="showName(selected)">
+            <div >
+                <div class="search">
+                    <input [(ngModel)]="name" type="text" class="searchTerm" placeholder="Enter Character Name" required>
+                    <div *ngIf="isNull(name)">
+                        <button class="btnn" mat-mini-fab>
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
+
+                    <div *ngIf="!isNull(name)">
+                        <button class="btnn" [routerLink]="['/gotCharacter',getCharacterName()]" mat-mini-fab>
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!showBooks(selected) && !showCharacters(selected) && !showHouses(selected) && !showName(selected)">
             <button mat-mini-fab color="accent" mat-raised-button>
                 <mat-icon>search</mat-icon>
             </button>

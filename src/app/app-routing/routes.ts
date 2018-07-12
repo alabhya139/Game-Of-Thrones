@@ -7,6 +7,7 @@ import { HouseDetailsComponent } from '../house-details/house-details.component'
 import { BooksComponent } from '../books/books.component';
 import { CharactersComponent } from '../characters/characters.component';
 import { HousesComponent } from '../houses/houses.component';
+import { CharacterSearchComponent } from '../character-search/character-search.component';
 
 export const routes: Routes = [
     {path:'home', component: HomeComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path:'houses',component:HousesComponent},
     {path:'books/:id',component: BookDetailsComponent},
     {path:'characters/:id', component: CharacterDetailsComponent},
-    {path:'houses/:id', component: HouseDetailsComponent}
+    {path:'houses/:id', component: HouseDetailsComponent},
+    {path:'gotCharacter/:name',component:CharacterSearchComponent}
 ];
 

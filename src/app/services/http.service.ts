@@ -70,4 +70,9 @@ export class HttpService {
     let htttpResponse = this.http.get(url);
     return htttpResponse;
   }
+
+  public searchCharacter(name){
+    let htttpResponse = this.http.get("https://api.got.show/api/characters/"+name)
+    return htttpResponse;
+  }
 }

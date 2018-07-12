@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit,OnChanges {
   public array3 = []
   public isLoaded: boolean
   selected = "filter"
+  public name;
   selectedCategory = "category"
 
   
@@ -124,6 +125,22 @@ export class HomeComponent implements OnInit,OnChanges {
     if(selected=="option3"){
       return true;
     }
+  }
+
+  public showName(selected){
+    if(selected=="option4"){
+      return true;
+    }
+  }
+
+  public getCharacterName(){
+    return this.name;
+  }
+
+  public isNull(name){
+    if(name==undefined){
+      return true;
+    }else return false;
   }
 
 }
