@@ -25,7 +25,6 @@ import { FormsModule } from '@angular/forms';
 import { BooksComponent } from './books/books.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HousesComponent } from './houses/houses.component';
-import { PagingComponent } from './paging/paging.component';
 import { CharacterSearchComponent } from './character-search/character-search.component';
 
 
@@ -39,7 +38,6 @@ import { CharacterSearchComponent } from './character-search/character-search.co
     BooksComponent,
     CharactersComponent,
     HousesComponent,
-    PagingComponent,
     CharacterSearchComponent
   ],
   imports: [
