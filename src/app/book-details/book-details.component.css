@@ -31,6 +31,7 @@
 .head{
     color: rgb(77, 34, 0);
     text-align: center;
+    font-size: 5vmin;
     font-family: 'GameOfThrones';
 }
 
@@ -70,6 +71,10 @@
     text-align: right;
     margin: 8vmin;
     color: white;
+}
+
+mat-divider{
+    border-color: rgb(212, 212, 212);
 }
 
 @media only screen and (max-width:900px){

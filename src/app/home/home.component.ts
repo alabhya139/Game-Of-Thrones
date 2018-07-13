@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+//imports
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -7,15 +8,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit,OnChanges {
+
+export class HomeComponent implements OnInit, OnDestroy {
+  //variables
   public Books;
   public Characters;
   public Houses;
   public allData = [];
-  public singleData =[];
+  public singleData = [];
 
-  public array1 = [1,2,3]
-  public array2 = [4,5,6]
+  public array1 = [1, 2, 3]
+  public array2 = [4, 5, 6]
   public array3 = []
   public isLoaded: boolean
   selected = "filter"
@@ -23,86 +26,103 @@ export class HomeComponent implements OnInit,OnChanges {
   public page;
   selectedCategory = "category"
 
-  
+  public subscriptionOne;
+  public subscriptionTwo;
+  public subscriptionThree;
 
-
-  constructor(private spinner:NgxSpinnerService,private httpService: HttpService) {
+  //constructor
+  constructor(private spinner: NgxSpinnerService, private httpService: HttpService) {
   }
 
-  ngOnChanges(){
-    console.log(this.selected)
+  //on component destroy all obeservables must be unsubscribed
+  ngOnDestroy() {
+    this.subscriptionOne.unsubscribe()
+    this.subscriptionOne.unsubscribe()
+    this.subscriptionOne.unsubscribe()
+    console.log("unsubscribed")
   }
 
   ngOnInit() {
     this.spinner.show()
-
-    console.log(this.showBooks(this.selected))
-    this.httpService.getBooks().subscribe(
-      data=>{
+    //subscription of observable to get Books Data
+    this.subscriptionOne = this.httpService.getBooks().subscribe(
+      data => {
         this.Books = data;
         this.combine(this.Books)
       },
-      error=>{
+      error => {
         console.log(error)
         this.spinner.hide()
       }
-      
+
     );
-    this.httpService.getCharacters().subscribe(
-      data=>{
-        this.Characters= data;
+
+    //subscription of observable to get Characters Data
+    this.subscriptionTwo = this.httpService.getCharacters().subscribe(
+      data => {
+        this.Characters = data;
         this.combine(this.Characters)
       },
-      error=>{
+      error => {
         console.log(error)
         this.spinner.hide()
       }
-    )
-    this.httpService.getHouses().subscribe(
-      data=>{
+    );
+
+    //subscription of observable to get House Data
+    this.subscriptionThree = this.httpService.getHouses().subscribe(
+      data => {
         this.Houses = data;
         this.combine(this.Houses)
       },
-      error=>{
+      error => {
         console.log(error)
         this.spinner.hide()
       }
     );
-    
+
   }
 
-  public isBook(data){
-    if(data.isbn!=undefined){
+  //method to check if the data belongs to books
+  public isBook(data) {
+    if (data.isbn != undefined) {
       return true;
     }
   }
 
-  public isCharacter(data){
-    if(data.gender!=undefined){
+  //method to check if the data belongs to characters
+  public isCharacter(data) {
+    if (data.gender != undefined) {
       return true;
     }
   }
 
-  public isHouse(data){
-    if(data.region!=undefined){
+  //method to check if the data belongs to house
+  public isHouse(data) {
+    if (data.region != undefined) {
       return true;
     }
   }
 
-  public getBookId(url:string){
-    return url.substr(44,url.length-1)
+  //method to get id of book for routing purpose
+  public getBookId(url: string) {
+    return url.substr(44, url.length - 1)
   }
 
-  public getCharacterId(url:string){
-    return url.substr(49,url.length-1)
+  //method to get id of character for routing purpose
+  public getCharacterId(url: string) {
+    return url.substr(49, url.length - 1)
   }
 
-  public getHouseId(url:string){
-    return url.substr(45,url.length-1)
+  //method to get id of house for routing purpose
+  public getHouseId(url: string) {
+    return url.substr(45, url.length - 1)
   }
 
+  /* method to combine all data of books, characters and
+    houses in single data */
   public combine(data) {
-    if(data!=undefined){
+    if (data != undefined) {
       this.spinner.hide()
     }
     this.allData.push(data)
@@ -123,38 +143,45 @@ export class HomeComponent implements OnInit,OnChanges {
     });
   }
 
-  public showBooks(selected){
-    if(selected=="option1"){
+
+  //method to know the filter is selected to diaplay books
+  public showBooks(selected) {
+    if (selected == "option1") {
       return true;
     }
   }
 
-  public showCharacters(selected){
-    if(selected=="option2"){
+  //method to know the filter is selected to diaplay characters
+  public showCharacters(selected) {
+    if (selected == "option2") {
       return true;
     }
   }
 
-  public showHouses(selected){
-    if(selected=="option3"){
+  //method to know the filter is selected to diaplay houses
+  public showHouses(selected) {
+    if (selected == "option3") {
       return true;
     }
   }
 
-  public showName(selected){
-    if(selected=="option4"){
+  //method to know the filter is selected to search character's name
+  public showName(selected) {
+    if (selected == "option4") {
       return true;
     }
   }
 
-  public getCharacterName(){
+  //method to get the entered character name by user
+  public getCharacterName() {
     return this.name;
   }
 
-  public isNull(name){
-    if(name==undefined){
+  //method to check if data is null or undefined
+  public isNull(name) {
+    if (name == undefined) {
       return true;
-    }else return false;
+    } else return false;
   }
 
 }

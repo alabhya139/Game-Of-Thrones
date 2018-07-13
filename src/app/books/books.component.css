@@ -92,6 +92,17 @@
     color: white;
 }
 
+.error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 5vmin;
+}
+
+.error img{
+    width: 40vw;
+}
+
 @media only screen and (max-width:980px){
     .example-card2{
         width: 26vw;

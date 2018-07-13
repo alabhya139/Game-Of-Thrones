@@ -145,8 +145,8 @@ mat-select{
 .my-pagination /deep/ .ngx-pagination li {
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     box-shadow: 0 3px 3px #777;
-    padding: 8px;
-    margin: 1vmin;
+    padding: 1vmin;
+    margin: 0.5vmin;
 }
 
 .my-pagination /deep/ .ngx-pagination li a:focus{
@@ -160,7 +160,7 @@ mat-select{
 .my-pagination /deep/ .ngx-pagination .pagination-previous{
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: white;
-    margin: 2vmin;
+    margin: 1vmin;
     padding: 1vmin;
     border-radius: 20px;
     box-shadow: 0 3px 3px #777;
@@ -168,7 +168,7 @@ mat-select{
 
 .my-pagination /deep/ .ngx-pagination .pagination-next{
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    margin: 2vmin;
+    margin: 1vmin;
     color: white;
     padding: 1vmin;
     border-radius: 20px;

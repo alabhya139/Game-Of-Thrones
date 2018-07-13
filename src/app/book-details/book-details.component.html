@@ -1,64 +1,66 @@
-<h2 class="head">Book Details</h2>
+<p class="head">Book Details</p>
 
 <div class="container">
     <div class="cards row">
-      <div class="content shadow" >
-          <mat-divider></mat-divider>
-          <div class="list-row">
-            <mat-list-item class="name">Name:</mat-list-item>
-            <mat-list-item class="value">{{Book?.name}}</mat-list-item>
-          </div>
-          <mat-divider></mat-divider>
-          <div class="list-row">
-              <mat-list-item class="name">ISBN:</mat-list-item>
-              <mat-list-item class="value">{{Book?.isbn}}</mat-list-item>
-          </div>
-          <mat-divider></mat-divider>
-          <div class="list-row">
-              <mat-list-item class="name">Author:</mat-list-item>
-              <mat-list-item class="value">{{Book?.authors}}</mat-list-item>
-          </div>
-          <mat-divider></mat-divider>    
-          <div class="list-row">
-              <mat-list-item class="name">Publisher:</mat-list-item>
-              <mat-list-item class="value">{{Book?.publisher}}</mat-list-item>
-          </div> 
-          <mat-divider></mat-divider>
-          <div class="list-row">
-              <mat-list-item class="name">Country:</mat-list-item>
-              <mat-list-item class="value">{{Book?.country}}</mat-list-item>
-          </div> 
-          <mat-divider></mat-divider>
-          <div class="list-row">
-              <mat-list-item class="name">Number Of Pages:</mat-list-item>
-              <mat-list-item class="value">{{Book?.numberOfPages}}</mat-list-item>
-          </div> 
-          <mat-divider></mat-divider>
-          <div class="list-row">
-              <mat-list-item class="name">Media Type:</mat-list-item>
-              <mat-list-item class="value">{{Book?.mediaType}}</mat-list-item>
-          </div> 
-          <mat-divider></mat-divider>
-          <div class="list-row">
-              <mat-list-item class="name">Release Date:</mat-list-item>
-              <mat-list-item class="value">{{Book?.released|date}}</mat-list-item>
-          </div> 
-          <mat-divider></mat-divider>
-      </div>
+        <div class="content shadow">
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Name:</mat-list-item>
+                <mat-list-item class="value">{{Book?.name}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">ISBN:</mat-list-item>
+                <mat-list-item class="value">{{Book?.isbn}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Author:</mat-list-item>
+                <mat-list-item class="value">{{Book?.authors}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Publisher:</mat-list-item>
+                <mat-list-item class="value">{{Book?.publisher}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Country:</mat-list-item>
+                <mat-list-item class="value">{{Book?.country}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Number Of Pages:</mat-list-item>
+                <mat-list-item class="value">{{Book?.numberOfPages}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Media Type:</mat-list-item>
+                <mat-list-item class="value">{{Book?.mediaType}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="list-row">
+                <mat-list-item class="name">Release Date:</mat-list-item>
+                <mat-list-item class="value">{{Book?.released|date}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
     </div>
     <!--Card-->
     <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{Book?.name}}</mat-card-title>
-          <mat-card-subtitle>{{Book?.publisher}}</mat-card-subtitle>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{Book?.name}}</mat-card-title>
+            <mat-card-subtitle>{{Book?.publisher}}</mat-card-subtitle>
         </mat-card-header>
         <img class="card-image" mat-card-image src="assets/images/book.png">
         <p>{{Book?.authors}}</p>
-      </mat-card>
-  </div>
+    </mat-card>
+</div>
 
-  <div class="btn">
-        <button [routerLink]="['/home']" mat-mini-fab><mat-icon>home</mat-icon></button>
-      </div>
-  <ngx-spinner loadingText="Books Details Loading..Please Wait"type="line-scale"></ngx-spinner>
+<div class="btn">
+    <button [routerLink]="['/home']" mat-mini-fab>
+        <mat-icon>home</mat-icon>
+    </button>
+</div>
+<ngx-spinner loadingText="Loading..Please Wait" type="line-scale"></ngx-spinner>

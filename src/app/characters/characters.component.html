@@ -1,5 +1,5 @@
-<h2 class="head">Characters</h2>
-<div class="container">
+<p *ngIf = "!isError()" class="head">Characters</p>
+<div *ngIf = "!isError()" class="container">
   <div *ngFor="let character of Characters| paginate: {id:'characters', itemsPerPage:4,currentPage:page}" class="cards row">
     <mat-card class="example-card2">
       <mat-card-header>
@@ -12,6 +12,10 @@
   </div>
 </div>
 
+<div *ngIf="isError()" class="error">
+  <p>Something Went Wrong</p>
+  <img src="assets/images/404.png">
+</div>
 
 <div class="btn">
   <button [routerLink]="['/home']" mat-mini-fab><mat-icon>home</mat-icon></button>
@@ -19,4 +23,4 @@
 
 <ngx-spinner type="line-scale" loadingText="Please Wait..."></ngx-spinner>
 
-<pagination-controls class="my-pagination" id = "characters" (pageChange) = "page = $event"></pagination-controls>
+<pagination-controls *ngIf="!isError()" previousLabel="prev" nextLabel="next" maxSize="3" class="my-pagination" id="characters" (pageChange)="page = $event"></pagination-controls>

@@ -1,4 +1,4 @@
-<h2 class="head">Character Details</h2>
+<p *ngIf="!isError(status)" class="head">Character Details</p>
 
 <div *ngIf="!isError(status)" class="container">
   <div class="cards row">
@@ -32,7 +32,7 @@
       <div class="list-row">
         <mat-list-item class="name">Titles:</mat-list-item>
         <div class="val">
-          <mat-list-item *ngFor="let title of character?.data?.titles"class="value">{{title}}</mat-list-item>
+          <mat-list-item *ngFor="let title of character?.data?.titles" class="value">{{title}}</mat-list-item>
         </div>
         <mat-list-item *ngIf="isNull(character?.data?.titles)">Unknown</mat-list-item>
       </div>
@@ -52,7 +52,7 @@
       <div class="list-row">
         <mat-list-item class="name">Titles:</mat-list-item>
         <div class="val">
-          <mat-list-item *ngFor="let book of character?.data?.books"class="value">{{book}}</mat-list-item>
+          <mat-list-item *ngFor="let book of character?.data?.books" class="value">{{book}}</mat-list-item>
         </div>
         <mat-list-item *ngIf="isNull(character?.data?.books)">Unknown</mat-list-item>
       </div>
@@ -72,9 +72,9 @@
 </div>
 
 <div *ngIf="isError(status)" class="error">
-    <p>Character Not Found</p>
-    <img src="assets/images/404.png">
-  </div>
+  <p>Character Not Found</p>
+  <img src="assets/images/404.png">
+</div>
 
 <div class="btn">
   <button [routerLink]="['/home']" mat-mini-fab>

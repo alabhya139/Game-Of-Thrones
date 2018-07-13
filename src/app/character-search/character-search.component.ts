@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../services/http.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -8,53 +8,69 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './character-search.component.html',
   styleUrls: ['./character-search.component.css']
 })
-export class CharacterSearchComponent implements OnInit {
+
+export class CharacterSearchComponent implements OnInit, OnDestroy {
+  //variables
   public character;
   public imageLink;
-  public status
+  public status;
+  public subscription;
 
-  constructor(private _route:ActivatedRoute, private http:HttpService, private spinner:NgxSpinnerService) { }
+  //constructors
+  constructor(private _route: ActivatedRoute, private http: HttpService, private spinner: NgxSpinnerService) { }
+
+  //unsubscribing from observable on component destroy
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit() {
     this.spinner.show()
-    let name = this._route.snapshot.params.name;
-    this.http.searchCharacter(name).subscribe(
-      data=>{
-        this.character = data;
-        if(this.character.data.imageLink == undefined){
-          this.imageLink="/assets/images/tyrion.jpg"
-        }else this.imageLink = "https://api.got.show"+ this.character.data.imageLink;
 
-        if(this.character!=undefined){
+    //getting name of character through activated route
+    let name = this._route.snapshot.params.name;
+
+    //observable to get data about character through http service
+    this.subscription = this.http.searchCharacter(name).subscribe(
+      data => {
+        this.character = data;
+        if (this.character.data.imageLink == undefined) {
+          this.imageLink = "/assets/images/tyrion.jpg"
+        } else this.imageLink = "https://api.got.show" + this.character.data.imageLink;
+
+        if (this.character != undefined) {
           this.spinner.hide()
         }
 
         console.log(this.imageLink)
       },
 
-      error=>{
+      error => {
         this.status = error.status
         this.spinner.hide()
       }
-    )
+    );
   }
 
-  public isNull(atrribute:string){
-    if(atrribute == ""){
+  //method to check if data is null or not
+  public isNull(atrribute: string) {
+    if (atrribute == "") {
       return true;
-    }else return false;
+    } else return false;
   }
 
-  public isMale(gender){
-    if(gender==false){
+  //method to check character's gender
+  public isMale(gender) {
+    if (gender == false) {
       return false;
-    }else return true;
+    } else return true;
   }
 
-  public isError(message){
-    if(message==404){
+  //method to check if there is an error
+  public isError(message) {
+    if (message == 404 || message == 0) {
       return true;
-    }else return false;
+    } else return false;
   }
- 
+
 }

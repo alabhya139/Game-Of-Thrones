@@ -39,6 +39,7 @@
 .head{
     color: rgb(77, 34, 0);
     text-align: center;
+    font-size: 5vmin;
     font-family: 'GameOfThrones';
 }
 
@@ -90,6 +91,17 @@
     text-align: right;
     margin: 8vmin;
     color: white;
+}
+
+.error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 5vmin;
+}
+
+.error img{
+    width: 40vw;
 }
 
 @media only screen and (max-width:980px){
